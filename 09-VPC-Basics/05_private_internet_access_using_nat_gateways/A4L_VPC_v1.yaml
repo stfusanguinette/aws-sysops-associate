@@ -1,9 +1,9 @@
 
-Description:  Animals4Life base VPC Template
+Description:  gabescloud base VPC Template
   It will be used anywhere where AWS product and service [DEMO] lessons require a VPC to be in place and functional
   Optional additions to the VPC Template (to save costs)
-  A4L_BastionHost - Deploys a bastionHost to access the VPC Private Resources (Can be removed to save costs)
-  A4L_NatGateways - Deploys 3 NatGateways (this has a base cost, can be omitted if no private subnet network access is required - or removed when not studying to save costs)
+  gc_BastionHost - Deploys a bastionHost to access the VPC Private Resources (Can be removed to save costs)
+  gc_NatGateways - Deploys 3 NatGateways (this has a base cost, can be omitted if no private subnet network access is required - or removed when not studying to save costs)
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -13,7 +13,7 @@ Resources:
       EnableDnsHostnames: true
       Tags:
         - Key: Name
-          Value: a4l-vpc1
+          Value: gabescloud-vpc1
   IPv6CidrBlock:
     Type: AWS::EC2::VPCCidrBlock
     Properties:
@@ -24,7 +24,7 @@ Resources:
     Properties:
       Tags:
       - Key: Name
-        Value: A4L-vpc1-igw
+        Value: gabecloud-vpc1-igw
   InternetGatewayAttachment:
     Type: 'AWS::EC2::VPCGatewayAttachment'
     Properties:
@@ -36,7 +36,7 @@ Resources:
       VpcId: !Ref VPC
       Tags:
       - Key: Name
-        Value: A4L-vpc1-rt-web
+        Value: gc-vpc1-rt-web
   RouteTableWebDefaultIPv4: 
     Type: 'AWS::EC2::Route'
     DependsOn: InternetGatewayAttachment
@@ -340,68 +340,68 @@ Resources:
       Role: !GetAtt IPv6WorkaroundRole.Arn
       Timeout: 30
 Outputs:
-  a4lvpc1:
-    Description: Animals4Life VPC1_ID
+  gcvpc1:
+    Description: gabescloud VPC1_ID
     Value: !Ref VPC
     Export: 
-      Name: a4l-vpc1
-  a4lvpc1subnetweba:
-    Description: Animals4Life VPC1 SubnetWEBA
+      Name: gc-vpc1
+  gcvpc1subnetweba:
+    Description: gabescloud VPC1 SubnetWEBA
     Value: !Ref SubnetWEBA
     Export:
-      Name: a4l-vpc1-subnet-weba
-  a4lvpc1subnetwebb:
-    Description: Animals4Life VPC1 SubnetWEBB
+      Name: gc-vpc1-subnet-weba
+  gcvpc1subnetwebb:
+    Description: gabescloud VPC1 SubnetWEBB
     Value: !Ref SubnetWEBB
     Export:
-      Name: a4l-vpc1-subnet-webb
-  a4lvpc1subnetwebc:
-    Description: Animals4Life VPC1 SubnetWEBC
+      Name: gc-vpc1-subnet-webb
+  gcvpc1subnetwebc:
+    Description: gabescloud VPC1 SubnetWEBC
     Value: !Ref SubnetWEBC
     Export:
-      Name: a4l-vpc1-subnet-webc
-  a4lvpc1subnetappa:
-    Description: Animals4Life VPC1 SubnetAPPA
+      Name: gc-vpc1-subnet-webc
+  gcvpc1subnetappa:
+    Description: gabescloud VPC1 SubnetAPPA
     Value: !Ref SubnetAPPA
     Export:
-      Name: a4l-vpc1-subnet-appa
-  a4lvpc1subnetappb:
-    Description: Animals4Life VPC1 SubnetAPPB
+      Name: gc-vpc1-subnet-appa
+  gcvpc1subnetappb:
+    Description: gabescloud VPC1 SubnetAPPB
     Value: !Ref SubnetAPPB
     Export:
-      Name: a4l-vpc1-subnet-appb
-  a4lvpc1subnetappc:
-    Description: Animals4Life VPC1 SubnetAPPC
+      Name: gc-vpc1-subnet-appb
+  gcvpc1subnetappc:
+    Description: gabescloud VPC1 SubnetAPPC
     Value: !Ref SubnetAPPC
     Export:
-      Name: a4l-vpc1-subnet-appc
-  a4lvpc1subnetdba:
-    Description: Animals4Life VPC1 SubnetDBA
+      Name: gc-vpc1-subnet-appc
+  gcvpc1subnetdba:
+    Description: gabescloud VPC1 SubnetDBA
     Value: !Ref SubnetDBA
     Export:
-      Name: a4l-vpc1-subnet-dba
-  a4lvpc1subnetdbb:
-    Description: Animals4Life VPC1 SubnetDBB
+      Name: gc-vpc1-subnet-dba
+  gcvpc1subnetdbb:
+    Description: gabescloud VPC1 SubnetDBB
     Value: !Ref SubnetDBB
     Export:
-      Name: a4l-vpc1-subnet-dbb
-  a4lvpc1subnetdbc:
-    Description: Animals4Life VPC1 SubnetDBC
+      Name: gc-vpc1-subnet-dbb
+  gcvpc1subnetdbc:
+    Description: gabescloud VPC1 SubnetDBC
     Value: !Ref SubnetDBC
     Export:
-      Name: a4l-vpc1-subnet-dbc
-  a4lvpc1subnetreserveda:
-    Description: Animals4Life VPC1 SubnetReservedA
+      Name: gc-vpc1-subnet-dbc
+  gcvpc1subnetreserveda:
+    Description: gabescloud VPC1 SubnetReservedA
     Value: !Ref SubnetReservedA
     Export:
-      Name: a4l-vpc1-subnet-reserveda
-  a4lvpc1subnetreservedb:
-    Description: Animals4Life VPC1 SubnetReservedB
+      Name: gc-vpc1-subnet-reserveda
+  gcvpc1subnetreservedb:
+    Description: gabescloud VPC1 SubnetReservedB
     Value: !Ref SubnetReservedB
     Export:
-      Name: a4l-vpc1-subnet-reservedb
-  a4lvpc1subnetreservedc:
-    Description: Animals4Life VPC1 SubnetReservedC
+      Name: gc-vpc1-subnet-reservedb
+  gcvpc1subnetreservedc:
+    Description: gabescloud VPC1 SubnetReservedC
     Value: !Ref SubnetReservedC
     Export:
-      Name: a4l-vpc1-subnet-reservedc
+      Name: gc-vpc1-subnet-reservedc
